@@ -11,6 +11,7 @@ export default () => {
 
     return (
         <Container>
+            
             <Titulo>Homepage</Titulo>
             <button onClick={handleButtonClick}>Ir para Tela 2</button>
         </Container>
