@@ -10,7 +10,8 @@ import MenuItem from './components/MenuItem';
 
 import HomeScreen from './pages/HomeScreen';
 import Tela2Screen from './pages/Tela2Screen';
-
+import PrivateRoute from './components/PrivateRoute';
+import Cart from './components/cart';
 export default () => {
     const name = useSelector(state => state.user.name);
 
@@ -19,20 +20,28 @@ export default () => {
         <Container>
             
             <Menu>
-                <MenuItem icon={store} Link="/"/> 
-                <MenuItem icon={orders} Link="/orders"/> 
-                <MenuItem icon={profile}Link="/profile"/> 
+                <a href='/'><MenuItem icon={store} Link="/"/> </a>
+                <a href='/orders'><MenuItem icon={orders} Link="/orders"/> </a>
+                <a href='/profile'><MenuItem icon={profile}Link="/profile"/> </a>
+                
             </Menu>
             <PageBody>
                 <Switch>
                     <Route exact path="/">
                         <HomeScreen />
                     </Route>
+                    <PrivateRoute path="/orders">
+                        <div>Tela de pedidos</div>
+                    </PrivateRoute>
+                    <PrivateRoute path="/profile">
+                        <div>Tela de profile</div>
+                    </PrivateRoute>
                     <Route path="/tela2/:nome">
                         <Tela2Screen />
                     </Route>
                 </Switch>
             </PageBody>
+            <Cart/>
         </Container>
             <h1>Oi, {name}</h1>
             

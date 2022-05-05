@@ -7,6 +7,8 @@ export default ({icon, link}) =>{
             <LinkArea href={link}>
                 <LinkIncon src={icon}/>
             </LinkArea>
+           
+            
         </>
     )
 }
